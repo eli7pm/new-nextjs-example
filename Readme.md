@@ -17,8 +17,8 @@ Are you [evaluating our SDK](https://pspdfkit.com/try/)? That's great, we're hap
 Clone the repo:
 
 ```bash
-git clone https://github.com/PSPDFKit/pspdfkit-web-example-nextjs.git
-cd pspdfkit-web-example-nextjs
+git clone https://github.com/eli7pm/new-nextjs-example.git
+cd new-nextjs-example
 ```
 
 Install the project dependencies:
