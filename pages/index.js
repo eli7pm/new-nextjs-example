@@ -2,8 +2,7 @@
 import React, {useCallback, useEffect, useRef, useState} from "react";
 export default function App() {
   const containerRef = useRef(null);
-  const pspdfkit = useCallback(()=>{
-    console.log("callback render")
+  const pspdfkitImport = useCallback(()=>{
     return import("pspdfkit")
   },[]);
 
@@ -17,11 +16,11 @@ export default function App() {
 
   useEffect(() => {
     const container = containerRef.current;
-    let instance
+    let PSPDFKit
     (async function () {
 
-      instance = (await pspdfkit());
-      await instance.load({
+      PSPDFKit = (await pspdfkitImport());
+      await PSPDFKit.load({
         container,
         document: file? file: "/example.pdf",
         baseUrl: `${window.location.protocol}//${window.location.host}/`,
@@ -30,7 +29,7 @@ export default function App() {
 
     return () => {
       URL.revokeObjectURL(file)
-      return instance && instance.unload(container)
+      return PSPDFKit && PSPDFKit.unload(container)
     };
   }, [file])
 
